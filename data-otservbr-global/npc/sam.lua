@@ -94,7 +94,7 @@ local function creatureSayCallback(npc, creature, type, message)
 			npcHandler:setTopic(playerId, 1)
 		end
 	elseif MsgContains(message, "2000 steel shields") then
-		if player:getStorageValue(Storage.WhatAFoolish.Questline) ~= 29 or player:getStorageValue(Storage.WhatAFoolish.Contract) == 2 then
+		if player:getStorageValue(Storage.Quest.U8_1.WhatAFoolishQuest.Questline) ~= 29 or player:getStorageValue(Storage.Quest.U8_1.WhatAFoolishQuest.Contract) == 2 then
 			npcHandler:say("My offers are weapons, armors, helmets, legs, and shields. If you'd like to see my offers, ask me for a {trade}.", npc, creature)
 			return true
 		end
@@ -102,7 +102,7 @@ local function creatureSayCallback(npc, creature, type, message)
 		npcHandler:say("What? You want to buy 2000 steel shields??", npc, creature)
 		npcHandler:setTopic(playerId, 2)
 	elseif MsgContains(message, "contract") then
-		if player:getStorageValue(Storage.WhatAFoolish.Contract) == 0 then
+		if player:getStorageValue(Storage.Quest.U8_1.WhatAFoolishQuest.Contract) == 0 then
 			npcHandler:say("Have you signed the contract?", npc, creature)
 			npcHandler:setTopic(playerId, 4)
 		end
@@ -124,7 +124,6 @@ local function creatureSayCallback(npc, creature, type, message)
 			npcHandler:setTopic(playerId, 3)
 		elseif npcHandler:getTopic(playerId) == 3 then
 			player:addItem(129, 1)
-			player:setStorageValue(Storage.WhatAFoolish.Contract, 1)
 			npcHandler:say("Fine! Here is the contract. Please sign it. Talk to me about it again when you're done.", npc, creature)
 			npcHandler:setTopic(playerId, 0)
 		elseif npcHandler:getTopic(playerId) == 4 then
@@ -134,7 +133,7 @@ local function creatureSayCallback(npc, creature, type, message)
 				return true
 			end
 
-			player:setStorageValue(Storage.WhatAFoolish.Contract, 2)
+			player:setStorageValue(Storage.Quest.U8_1.WhatAFoolishQuest.Contract, 1)
 			npcHandler:say("Excellent! I will start working right away! Now that I am going to be rich, I will take the opportunity to tell some people what I REALLY think about them!", npc, creature)
 			npcHandler:setTopic(playerId, 0)
 		end
@@ -180,17 +179,17 @@ npcConfig.shop = {
 	{ itemName = "dagger", clientId = 3267, buy = 5, sell = 2 },
 	{ itemName = "double axe", clientId = 3275, sell = 260 },
 	{ itemName = "doublet", clientId = 3379, buy = 16, sell = 3 },
-	{ itemName = "durable exercise axe", clientId = 35280, buy = 945000, count = 1800 },
-	{ itemName = "durable exercise bow", clientId = 35282, buy = 945000, count = 1800 },
-	{ itemName = "durable exercise club", clientId = 35281, buy = 945000, count = 1800 },
-	{ itemName = "durable exercise shield", clientId = 44066, buy = 945000, count = 1800 },
-	{ itemName = "durable exercise sword", clientId = 35279, buy = 945000, count = 1800 },
+	{ itemName = "durable exercise axe", clientId = 35280, buy = 1250000, count = 1800 },
+	{ itemName = "durable exercise bow", clientId = 35282, buy = 1250000, count = 1800 },
+	{ itemName = "durable exercise club", clientId = 35281, buy = 1250000, count = 1800 },
+	{ itemName = "durable exercise shield", clientId = 44066, buy = 1250000, count = 1800 },
+	{ itemName = "durable exercise sword", clientId = 35279, buy = 1250000, count = 1800 },
 	{ itemName = "dwarven shield", clientId = 3425, buy = 500, sell = 100 },
-	{ itemName = "exercise axe", clientId = 28553, buy = 262500, count = 500 },
-	{ itemName = "exercise bow", clientId = 28555, buy = 262500, count = 500 },
-	{ itemName = "exercise club", clientId = 28554, buy = 262500, count = 500 },
-	{ itemName = "exercise shield", clientId = 44065, buy = 262500, count = 500 },
-	{ itemName = "exercise sword", clientId = 28552, buy = 262500, count = 500 },
+	{ itemName = "exercise axe", clientId = 28553, buy = 347222, count = 500 },
+	{ itemName = "exercise bow", clientId = 28555, buy = 347222, count = 500 },
+	{ itemName = "exercise club", clientId = 28554, buy = 347222, count = 500 },
+	{ itemName = "exercise shield", clientId = 44065, buy = 347222, count = 500 },
+	{ itemName = "exercise sword", clientId = 28552, buy = 347222, count = 500 },
 	{ itemName = "fire sword", clientId = 3280, sell = 1000 },
 	{ itemName = "halberd", clientId = 3269, sell = 400 },
 	{ itemName = "hand axe", clientId = 3268, buy = 8, sell = 4 },
@@ -198,11 +197,11 @@ npcConfig.shop = {
 	{ itemName = "iron helmet", clientId = 3353, buy = 390, sell = 150 },
 	{ itemName = "jacket", clientId = 3561, buy = 12, sell = 1 },
 	{ itemName = "katana", clientId = 3300, sell = 35 },
-	{ itemName = "lasting exercise axe", clientId = 35286, buy = 7560000, count = 14400 },
-	{ itemName = "lasting exercise bow", clientId = 35288, buy = 7560000, count = 14400 },
-	{ itemName = "lasting exercise club", clientId = 35287, buy = 7560000, count = 14400 },
-	{ itemName = "lasting exercise shield", clientId = 44067, buy = 7560000, count = 14400 },
-	{ itemName = "lasting exercise sword", clientId = 35285, buy = 7560000, count = 14400 },
+	{ itemName = "lasting exercise axe", clientId = 35286, buy = 10000000, count = 14400 },
+	{ itemName = "lasting exercise bow", clientId = 35288, buy = 10000000, count = 14400 },
+	{ itemName = "lasting exercise club", clientId = 35287, buy = 10000000, count = 14400 },
+	{ itemName = "lasting exercise shield", clientId = 44067, buy = 10000000, count = 14400 },
+	{ itemName = "lasting exercise sword", clientId = 35285, buy = 10000000, count = 14400 },
 	{ itemName = "leather armor", clientId = 3361, buy = 35, sell = 12 },
 	{ itemName = "leather boots", clientId = 3552, buy = 10, sell = 2 },
 	{ itemName = "leather helmet", clientId = 3355, buy = 12, sell = 4 },

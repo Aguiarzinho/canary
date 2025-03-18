@@ -10,6 +10,7 @@ dofile(DATA_DIRECTORY .. "/lib/quests/quest.lua")
 -- Tables library
 dofile(DATA_DIRECTORY .. "/lib/tables/load.lua")
 
+
 -- HUNT REFILLER VIP
 dofile(DATA_DIRECTORY .. '/lib/custom/hunt_refiller.lua')
 
@@ -21,3 +22,7 @@ dofile(DATA_DIRECTORY .. '/lib/others/mount_doll_lib.lua')
 
 -- Addon Doll library
 dofile(DATA_DIRECTORY .. '/lib/others/addon_doll_lib.lua')
+
+-- Functions library
+dofile(DATA_DIRECTORY .. "/lib/functions/load.lua")
+
